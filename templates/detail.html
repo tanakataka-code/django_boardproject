@@ -27,7 +27,7 @@
       <img src="{{ obj.snsimage.url }}" class="img-fluid img-thumbnail">
     </div >
     <a href="{% url 'good' obj.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">いいね</a>
-    <a href="#" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">既読</a>
+    <a href="{% url 'read' obj.pk %}" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">既読</a>
   </div>
 </div>
 {% else %}
