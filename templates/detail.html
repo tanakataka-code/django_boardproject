@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col-11">
-        <h3>個人SNS</h3>
+        <h3>Detail Page</h3>
       </div>
       <div class="col-1">
         <div class="float-right">
@@ -20,14 +20,15 @@
 {% block content %}
 {% if user.is_authenticated %}
 <div class="container">
-{% for item in object_list %}
   <div class="alert alert-success" role="alert">
-    <p><a href="{% url 'detail' item.pk %}">タイトル：{{ item.title }}</a></p>
-    <p>投稿者：{{ item.author }}</p>
-    <a href="#" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">いいね：{{ item.good }}</a>
-    <a href="#" class="btn btn-secondary disabled" tabindex="-1" role="button" aria-disabled="true">既読：{{ item.read }}人</a>
+    <p>タイトル：{{ obj.title }}</p>
+    <p>投稿者：{{ obj.author }}</p>
+    <div class="text-center">
+      <img src="{{ obj.snsimage.url }}" class="img-fluid img-thumbnail">
+    </div >
+    <a href="{% url 'good' obj.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">いいね</a>
+    <a href="#" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">既読</a>
   </div>
-{% endfor %}
 </div>
 {% else %}
 Please log in.
